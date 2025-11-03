@@ -5,14 +5,15 @@ import React from "react";
 function Login() {
   const navigate = useNavigate();
 
-  const Login = () => {
-    
-    navigate("/dashboard");
+  // función que redirige al Home
+  const handleLogin = (e) => {
+    e.preventDefault(); // evita que el formulario se recargue
+    navigate("/Home");  // aquí defines a dónde debe ir
   };
 
   return (
-     <div className="login-container">
-      <form className="login-box">
+    <div className="login-container">
+      <form className="login-box" onSubmit={handleLogin}>
         <h2>Iniciar Sesión</h2>
         <p>Bienvenido de nuevo. Accede a tu cuenta.</p>
 
@@ -25,14 +26,14 @@ function Login() {
           <a href="#">¿Olvidaste tu contraseña?</a>
         </div>
 
-      <button onClick={()=> window.location.href="/Dashboard"}>Iniciar Sesión</button>
+        <button type="submit">Iniciar Sesión</button>
 
         <p className="register-text">
-          ¿No tienes una cuenta? <Link to="/register">Regístrate</Link>
+          ¿No tienes una cuenta?{" "}
+          <Link to="/registro">Regístrate</Link>
         </p>
       </form>
     </div>
-    
   );
 }
 
